@@ -41,8 +41,8 @@ TQueue <T> ::TQueue(const TQueue <T> & queue)
 	last = queue.last;
 	Size = queue.Size;
 	ord = new T[MaxSize];
-	//for (int i = 0; i < MaxSize; i++)
-	for (int i=first;i<=last;i++)
+	for (int i = 0; i < MaxSize; i++)
+	//for (int i=first;i<=last;i++)
 		ord[i] = queue.ord[i];
 }
 template <class T>
@@ -63,7 +63,8 @@ TQueue <T> TQueue <T>::operator=(const TQueue <T> &queue)
 	first = queue.first;
 	last = queue.last;
 	Size = queue.Size;
-	for (int i = first; i <= last; i++)
+	for (int i = 0; i < MaxSize; i++)
+	//for (int i = first; i <= last; i++)
 		ord[i] = queue.ord[i];
 	return *this;
 }
@@ -72,8 +73,8 @@ bool TQueue <T>::operator==(const TQueue  &queue) const
 {
 	if (!(MaxSize == queue.MaxSize && Size == queue.Size && first == queue.first && last && queue.last))
 		return false;
-	//for (int i = 0; i < MaxSize; i++)
-	for (int i=first;i<=last;i++)
+	for (int i = 0; i < MaxSize; i++)
+	//for (int i=first;i<=last;i++)
 		if (ord[i] != queue.ord[i])
 			return false;
 	return true;
