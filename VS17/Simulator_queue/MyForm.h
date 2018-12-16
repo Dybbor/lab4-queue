@@ -260,7 +260,7 @@ namespace Simulatorqueue {
 			// 
 			// timer1
 			// 
-			this->timer1->Interval = 200;
+			this->timer1->Interval = 10;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
 			// 
 			// label7
@@ -335,6 +335,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 					queue->PushLast(i);
 				}
 				button1->Enabled = false;
+				Draw();
 				timer1->Enabled = true;
 			}
 }
@@ -345,20 +346,21 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+	Clear();
 	if (rand->NextDouble()<p)
 		if (!queue->IsFull()) 
 		{
 			queue->PushLast(1);
 			PushCount++;
-			Draw();
 		}
 	if (rand->NextDouble()<q)
 		if (!queue->IsEmpty()) 
 		{
 			queue->PopFirst();
 			PopCount++;
-			Clear();
 		}
+	Draw();
+
 
 	textBox5->Text = Convert::ToString(PushCount);
 	textBox6->Text = Convert::ToString(PopCount);
@@ -368,7 +370,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 		 {
 			double start = 360 * queue->First() / queue->GetMaxSize();
 			double finish= 360*queue->GetSize() / queue->GetMaxSize();
-			g->DrawArc(ClearPen, CenterX, CenterY, Height, Width,finish, start);
+			g->DrawArc(ClearPen, CenterX, CenterY, Height, Width,start, finish);
 		 }
 		 void Draw() 
 		 {
