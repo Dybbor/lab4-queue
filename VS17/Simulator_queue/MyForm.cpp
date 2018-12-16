@@ -3,11 +3,11 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-
-int main(array <String^ > ^ args) {
+[STAThreadAttribute]
+int main(array < String^ > ^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Graphics::MyForm form;
+	Simulatorqueue::MyForm form;
 	Application::Run(%form);
 	return 0;
 }
