@@ -15,6 +15,9 @@ public:
 	bool IsFull() const;
 	bool IsEmpty() const;
 	void PushLast(const T elem);
+	int GetSize() { return Size; }
+	int GetMaxSize() { return MaxSize; }
+	int First() { return first; }
 	T PopFirst();
 	T WhoIsFirst() const;
 	T WhoIsLast()const;
