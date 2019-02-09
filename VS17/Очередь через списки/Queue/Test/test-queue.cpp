@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "..\Queue\Queue.h"
 
-
 TEST(TQueue, queue_is_empty)
 {
 	TQueue<int> q;
@@ -11,6 +10,7 @@ TEST(TQueue, queue_is_not_empty)
 {
 	TQueue<int> q;
 	q.PushLast(5);
+	std::cout << " SIZE  " << q.Count() << std::endl;
 	EXPECT_EQ(false, q.IsEmpty());
 }
 TEST(TQueue, can_pop_in_queue)

@@ -33,6 +33,7 @@ TQueue<T>::TQueue()
 {
 	pFirst = NULL;
 	pLast = NULL;
+	pLast->pNext = NULL;
 }
 
 template <class T>
@@ -81,11 +82,11 @@ bool TQueue <T>::IsEmpty()
 template <class T>
 void TQueue <T>  ::PushLast(const T &elem) 
 {
-	
 	TLink <T> *tmp = new TLink <T>;
-	tmp->val = elem;
+	tmp->val = elem;	
 	tmp->pNext = NULL;
-	pLast;
+	pLast->pNext = tmp;
+	pLast = tmp;
 }
 
 template <class T>
