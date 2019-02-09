@@ -5,7 +5,7 @@ template <class T>
 struct TLink
 {
 	T val;				// значение
-	TLink <T> *pNext;   // указательна следующий элемент
+	TLink <T> *pNext;   // указательна на следующий элемент
 };
 
 template <class T>
@@ -33,7 +33,6 @@ TQueue<T>::TQueue()
 {
 	pFirst = NULL;
 	pLast = NULL;
-	pLast->pNext = NULL;
 }
 
 template <class T>
@@ -85,7 +84,12 @@ void TQueue <T>  ::PushLast(const T &elem)
 	TLink <T> *tmp = new TLink <T>;
 	tmp->val = elem;	
 	tmp->pNext = NULL;
-	pLast->pNext = tmp;
+	if (IsEmpty())
+	{
+		pFirst = tmp;
+	}
+	else
+		pLast->pNext = tmp;
 	pLast = tmp;
 }
 
@@ -121,10 +125,11 @@ template <class T>
 int TQueue <T>::Count() 
 {
 	int count = 0;
-	while (pFirst != NULL) 
+	TLink <T> *tmp = pFirst;
+	while (tmp != NULL) 
 	{
 		count++;
-		pFirst = pFirst->pNext;
+		tmp = tmp->pNext;
 	}
 	return count;
 }

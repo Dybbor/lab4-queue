@@ -45,5 +45,5 @@ TEST(TQueue, who_is_last)
 	for (int i = 0; i < 3; i++)
 		q.PushLast(i);
 	EXPECT_EQ(2, q.WhoIsLast());
-	EXPECT_EQ(1, q.WhoIsLast());
+
 }
