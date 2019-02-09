@@ -5,10 +5,10 @@ using namespace std;
 void main() 
 {
 	cout << "Hello, world" << endl;
-	TQueue <int> a;
+	/*TQueue <int> a;
 	cout << a.IsEmpty() << endl;
 	a.PushLast(5);
-	cout << a.WhoIsLast();
+	cout << a.WhoIsLast();*/
 	system("pause");
 }
 
