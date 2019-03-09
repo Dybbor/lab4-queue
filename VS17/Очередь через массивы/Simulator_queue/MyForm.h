@@ -329,6 +329,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		}
 		if (stop)
 			{
+			PopCount = PushCount = 0;
 				queue = new TQueue <int>(MaxSize);
 				for (int i = 0; i < Size; i++)
 				{

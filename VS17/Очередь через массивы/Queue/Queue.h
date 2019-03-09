@@ -142,7 +142,7 @@ template <class T>
 void TQueue<T>::Clear()
 {
 	delete[] ord;
-	ord = new T[queue.MaxSize];
+	ord = new T[MaxSize];
 	first = 0;
 	last = -1;
 	Size = 0;
